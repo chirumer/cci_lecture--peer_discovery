@@ -16,7 +16,7 @@ class Controller_token:
 # for controlling identification
 
 # identification thread's job
-def start_identification(identification_controller):
+def _start_identification(identification_controller):
   identification_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
   server_address = ''
@@ -47,9 +47,15 @@ def start_identification(identification_controller):
       identification_socket.sendto(encoded_username, client_endpoint)
       # we send our username
 
-identification_controller = Controller_token()
-identification_thread = threading.Thread(target=start_identification, args=(identification_controller,))
-identification_thread.start()
+_identification_controller = Controller_token()
+_identification_thread = threading.Thread(target=_start_identification, args=(_identification_controller,))
+_identification_thread.start()
 
-# identification_controller.enable() to start identifying ourselves in the network (when we're looking to play)
-# identification_controller.disable() to stop identifying ourselves in the network (when we're already playing a game)
+
+############## EXPORTED FUNCTIONS ##############
+
+def go_online():
+  _identification_controller.enable()
+
+def go_offline():
+  _identification_controller.disable()
