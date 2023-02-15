@@ -37,7 +37,7 @@ def find_online_users():
       users.append(user)
 
     except socket.error as e:
-      if e.errno == errno.EAGAIN:
+      if e.errno == errno.EAGAIN or e.errno == errno.EWOULDBLOCK:
           # all respones have been read
         break
   
