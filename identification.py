@@ -35,7 +35,7 @@ def _start_identification(username, identification_controller):
       payload, client_endpoint = identification_socket.recvfrom(max_data_size)
 
     except socket.error as e:
-      if e.errno == errno.EAGAIN:
+      if e.errno == errno.EAGAIN or e.errno == errno.EWOULDBLOCK:
         time.sleep(0.1)
         continue
 
