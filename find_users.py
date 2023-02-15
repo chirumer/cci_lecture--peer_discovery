@@ -4,6 +4,9 @@ import errno
 
 IDENTIFICATION_PORT = 5005
 
+
+############## EXPORTED FUNCTIONS ##############
+
 def find_online_users():
 
   users_query_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -39,6 +42,3 @@ def find_online_users():
         break
   
   return users
-
-
-print(find_online_users())
