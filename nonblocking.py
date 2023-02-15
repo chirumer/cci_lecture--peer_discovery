@@ -20,7 +20,7 @@ while True:
     payload, client_endpoint = listener_socket.recvfrom(max_data_size)
 
   except socket.error as e:
-    if e.errno == errno.EAGAIN:
+    if e.errno == errno.EAGAIN or e.errno == errno.EWOULDBLOCK:
         # no data available for reading
 
       print('no data available for reading')
