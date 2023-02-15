@@ -17,7 +17,7 @@ def main():
     print('SOME LOGIC FOR PRINTING ONLINE USERNAMES')
 
     # get input
-    user_input = input('--MENU--\n(1) Go Online (wait for incoming connections)\n(2) Play against an Online Player\n(3)Refresh\n-->')
+    user_input = input('--MENU--\n(1) Go Online (wait for incoming connections)\n(2) Play against an Online Player\n(3) Refresh\n-->')
     while user_input != '1' and user_input != '2' and user_input != '3':
       print('WRITE AN ERROR MESAGE AND REPROMPT')
 
