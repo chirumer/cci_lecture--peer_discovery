@@ -57,20 +57,20 @@ identification_controller.enable()
 print('identification enabled')
 # start identification
 
-time.sleep(1)
+# time.sleep(1)
 
-identification_controller.disable()
-print('identification disabled')
-# stop identification
+# identification_controller.disable()
+# print('identification disabled')
+# # stop identification
 
-time.sleep(1)
+# time.sleep(1)
 
-identification_controller.enable()
-print('identification enabled')
-# start identification
+# identification_controller.enable()
+# print('identification enabled')
+# # start identification
 
-time.sleep(1)
+# time.sleep(1)
 
-identification_controller.disable()
-print('identification disabled')
-# stop identification
+# identification_controller.disable()
+# print('identification disabled')
+# # stop identification
