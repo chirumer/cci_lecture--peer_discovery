@@ -23,6 +23,7 @@ def main():
 
     if user_input == '1':
       go_online()
+      print('waiting for incoming connection')
       game_server()
       go_offline()
     
