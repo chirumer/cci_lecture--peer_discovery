@@ -30,8 +30,6 @@ def start_identification(identification_controller):
     while not identification_controller.is_active:
       time.sleep(0.1)
 
-    print('enabled')
-
     try:
       max_data_size = 1000
       payload, client_endpoint = identification_socket.recvfrom(max_data_size)
