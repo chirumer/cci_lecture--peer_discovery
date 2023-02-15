@@ -51,24 +51,5 @@ identification_controller = Controller_token()
 identification_thread = threading.Thread(target=start_identification, args=(identification_controller,))
 identification_thread.start()
 
-identification_controller.enable()
-print('identification enabled')
-# start identification
-
-# time.sleep(1)
-
-# identification_controller.disable()
-# print('identification disabled')
-# # stop identification
-
-# time.sleep(1)
-
-# identification_controller.enable()
-# print('identification enabled')
-# # start identification
-
-# time.sleep(1)
-
-# identification_controller.disable()
-# print('identification disabled')
-# # stop identification
+# identification_controller.enable() to start identifying ourselves in the network (when we're looking to play)
+# identification_controller.disable() to stop identifying ourselves in the network (when we're already playing a game)
