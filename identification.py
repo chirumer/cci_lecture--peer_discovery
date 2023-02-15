@@ -16,7 +16,7 @@ class Controller_token:
 # for controlling identification
 
 # identification thread's job
-def _start_identification(identification_controller):
+def _start_identification(username, identification_controller):
   identification_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 
   server_address = ''
@@ -42,20 +42,25 @@ def _start_identification(identification_controller):
     command = payload.decode()
     if command == 'identify':
         # they are querying our username
-      username = 'CCI'
       encoded_username = username.encode()
       identification_socket.sendto(encoded_username, client_endpoint)
       # we send our username
 
-_identification_controller = Controller_token()
-_identification_thread = threading.Thread(target=_start_identification, args=(_identification_controller,))
-_identification_thread.start()
-
 
 ############## EXPORTED FUNCTIONS ##############
 
+def set_username(username):
+  global _identification_controller
+  _identification_controller = Controller_token()
+  _identification_thread = threading.Thread(target=_start_identification, args=(username, _identification_controller,))
+  _identification_thread.start()
+
 def go_online():
+  if not _identification_controller:
+    raise RuntimeError('no username set')
   _identification_controller.enable()
 
 def go_offline():
+  if not _identification_controller:
+    raise RuntimeError('no username set')
   _identification_controller.disable()
