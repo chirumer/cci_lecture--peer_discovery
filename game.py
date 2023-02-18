@@ -1,8 +1,11 @@
 import socket
 
 GAME_PORT = 5007
+# participating clients must use this port for game communication
 
-# represents the game state
+
+############## GAME LOGIC ##############
+
 board = ''
 
 def print_current_board():
@@ -24,6 +27,9 @@ def has_game_ended():
     return True
   else:
     return False
+
+
+############## EXPORTED FUNCTIONS ##############
 
 def game_server():
   with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as accepter_socket:
