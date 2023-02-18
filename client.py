@@ -1,7 +1,7 @@
 import socket
 
 
-HOST = 'chirux-3.local'
+HOST = '127.0.0.1'
 PORT = 558
 
 
