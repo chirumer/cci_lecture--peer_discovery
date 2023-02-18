@@ -14,6 +14,10 @@ interfaces = socket.getaddrinfo(host=hostname, port=None)
 # -> For getting all ip addresses under a hostname
 # -> For IPv4, add family=socket.AF_INET
 
+ipv4_interfaces = socket.getaddrinfo(host=hostname, port=None, family=socket.AF_INET)
+ips = set([ip[-1][0] for ip in ipv4_interfaces])
+# listing all IPv4 addresses on our system
+
 broadcast_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
 # -> Creates a UDP socket
 # -> All network communication happen through sockets
